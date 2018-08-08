@@ -1,0 +1,22 @@
+<h1>Sign In</h1>
+<%= form_with(model: @user, url: sessions_path, method: :user, local: true) do |f| %>
+<% if @user.errors.any? %>
+<div class="error_messages">
+<h2>Form is invalid</h2>
+<ul>
+<% @user.errors.full_messages.each do |message| %>
+</ul>
+<li><%= message %></li>
+<% end %>
+</div>
+<% end %>
+<div class="field">
+<%= f.label :email %><br />
+<%= f.text_field :email %>
+</div>
+<div class="field">
+<%= f.label :password %><br />
+<%= f.password_field :password %>
+</div>
+<div class="actions"><%= f.submit "Sign In" %></div>
+<% end %>
